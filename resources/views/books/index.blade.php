@@ -7,12 +7,10 @@
     
     @if(count($books) > 0)
         <ul>
-            @foreach($books as $book)
-                <li>
-                    <strong>
-                        <a href="/books/{{ $book['id'] }}">{{ $book['judul'] }}</a>
-                    </strong> - Penulis: {{ $book['penulis'] }} (Tahun: {{ $book['tahun_terbit'] }})
-                </li>
+            @foreach ($books as $book)
+               <li>
+                   <strong>{{ $book->title }}</strong> - Penulis: {{ $book->author }} (Tahun: {{ $book->year }})
+               </li>
             @endforeach
         </ul>
     @else
