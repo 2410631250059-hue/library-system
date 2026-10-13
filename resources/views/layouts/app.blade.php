@@ -23,7 +23,7 @@
 
     <footer>
         <hr>
-        <p>&copy; {{ date('Y') }} Library System - Tugas Praktikum Pertemuan 6</p>
+        <p>&copy; {{ date('Y') }} Library System </p>
     </footer>
 </body>
 </html>
