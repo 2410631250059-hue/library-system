@@ -10,19 +10,31 @@
         @method('PUT')
         <div>
             <label>Judul Buku:</label><br>
-            <input type="text" name="title" value="{{ $book->title }}" required>
+            <input type="text" name="title" value="{{ old('title', $book->title) }}">
+            @error('title')
+                <p style="color: red;">{{ $message }}</p>
+            @enderror
         </div>
         <div>
             <label>Penulis:</label><br>
-            <input type="text" name="author" value="{{ $book->author }}" required>
+            <input type="text" name="author" value="{{ old('author', $book->author) }}">
+            @error('author')
+                <p style="color: red;">{{ $message }}</p>
+            @enderror
         </div>
         <div>
             <label>Tahun:</label><br>
-            <input type="number" name="year" value="{{ $book->year }}" required>
+            <input type="number" name="year" value="{{ old('year', $book->year) }}">
+            @error('year')
+                <p style="color: red;">{{ $message }}</p>
+            @enderror
         </div>
         <div>
             <label>Stok:</label><br>
-            <input type="number" name="stock" value="{{ $book->stock }}" required>
+            <input type="number" name="stock" value="{{ old('stock', $book->stock) }}">
+            @error('stock')
+                <p style="color: red;">{{ $message }}</p>
+            @enderror
         </div>
         <br>
         <button type="submit">Update</button>
