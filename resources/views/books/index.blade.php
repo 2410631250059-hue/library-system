@@ -20,6 +20,7 @@
                     <th>Penulis</th>
                     <th>Tahun</th>
                     <th>Stok</th>
+                    <th>Kategori</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -30,6 +31,7 @@
                         <td>{{ $book->author }}</td>
                         <td>{{ $book->year }}</td>
                         <td>{{ $book->stock }}</td>
+                        <td>{{ $book->category?->name ?? 'Belum ada kategori' }}</td>
                         <td>
                             <a href="{{ route('books.edit', $book) }}">Edit</a>
                             <form action="{{ route('books.destroy', $book) }}" method="POST" style="display:inline;">
