@@ -5,6 +5,11 @@
 @section('content')
     <h2>Daftar Buku</h2>
 
+    <form action="{{ route('logout') }}" method="POST" style="margin-bottom: 20px;">
+    @csrf
+    <button type="submit">Logout</button>
+    </form>
+
     @if(session('success'))
     <p style="color: green;">{{ session('success') }}</p>
     @endif
