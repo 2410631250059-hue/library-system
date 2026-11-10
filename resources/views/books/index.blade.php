@@ -5,10 +5,22 @@
 @section('content')
     <h2>Daftar Buku</h2>
 
-    <form action="{{ route('logout') }}" method="POST" style="margin-bottom: 20px;">
-    @csrf
-    <button type="submit">Logout</button>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <div>
+        <strong>Logged in as:</strong> {{ auth()->user()->name }} (<em>{{ auth()->user()->role }}</em>)
+    </div>
+    <form action="{{ route('logout') }}" method="POST">
+        @csrf
+        <button type="submit">Logout</button>
     </form>
+    </div>
+
+{{-- Contoh penggunaan Gate untuk menyembunyikan/menampilkan tombol kelola pengguna --}}
+    @can('manage-users')
+    <div style="background-color: #e2e8f0; padding: 10px; margin-bottom: 15px; border-radius: 5px;">
+        <strong>[Menu Khusus Admin]</strong> <a href="#">Kelola Pengguna</a>
+    </div>
+    @endcan
 
     @if(session('success'))
     <p style="color: green;">{{ session('success') }}</p>
